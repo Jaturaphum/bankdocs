@@ -1,23 +1,34 @@
-<?php 
-    session_start();
-    include('server.php');
-    
-    $errors = array();
+<?php
+include('server.php');
+$sql = "SELECT * FROM users";
+$errors = array();
+$result = $conn->query($sql);
 
-    if(isset($_POST['dp_user'])) {
-        $banknumber = mysqli_real_escape_string($conn, $_POST['banknumber']);
-        $bank = mysqli_real_escape_string($conn, $_POST['bank']);
+if (isset($_POST['dps_bb'])) {
+	$amount = (int) $_POST['amount'];
+	if ($result->num_rows > 0) {
 
-    $stmt = $conn->prepare("INSERT INTO accounts (account_number, num_jobs) VALUES (?, ?)");
+		while ($row = $result->fetch_assoc()) {
+			$balance = (int) $row["balance"];
+			$sum = $balance - $amount;
 
-    $stmt->bind_param("si", $account_number, $num_jobs);
+			$sql_update = "UPDATE users SET balance ='$sum'  WHERE id=" . $row["id"];
 
-    $account_number = '';
-    $num_jobs = '';
+			if ($conn->query($sql_update) === TRUE) {
+				echo "Data updated successfully for id: " . $row["id"];
+			} else {
+				echo "Error updating data: " . $conn->error;
+			}
+		}
 
-    $stmt->execute();
+		header('Location: deposit.php');
+		exit();
+	} else {
+		$errors[] = "Failed to retrieve user's deposit balance";
+	}
+}
 
-    $stmt->close();
-    $conn->close();
-    }
-?>
+if (!empty($errors)) {
+	header('Location: deposit.php');
+	exit();
+}
