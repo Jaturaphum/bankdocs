@@ -68,12 +68,12 @@ if (isset($_GET['logout'])) {
         <div class="column">
             <div class="bon">
                 <label for="withdraw">กรอกจำนวนเงินถอน</label><br>
-                <input type="text" name="withdraw" placeholder="" >
+                <input type="text" name="withdraw" placeholder="">
                 <br><br>
                 <div class="input-group">
-                <button type="submit" name="wds_bb" class="btn"onclick="alert('ได้ทำการถอนเงินออกระบบเเล้ว')">withdraw</button>
-            </div>
-                
+                    <button type="submit" name="wds_bb" class="btn" onclick="alert('ได้ทำการถอนเงินออกระบบเเล้ว')">withdraw</button>
+                </div>
+
             </div>
             <div>
             </div>

@@ -11,5 +11,4 @@
     } else {
         echo "Connected successfully";
     }
-
 ?>

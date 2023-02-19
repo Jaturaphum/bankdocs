@@ -1,30 +1,44 @@
 <?php
 include('server.php');
-$sql = "SELECT * FROM users";
+
 $errors = array();
-$result = $conn->query($sql);
+
+session_start();
 
 if (isset($_POST['dps_bb'])) {
-	$deposit = (int) $_POST['deposit'];
-	if ($result->num_rows > 0) {
+	$username = $_SESSION['username'];
 
-		while ($row = $result->fetch_assoc()) {
-			$balance = (int) $row["money"];
-			$sum = $balance + $deposit;
+	if (isset($_POST['deposit'])) {
+		$deposit = (int) $_POST['deposit'];
 
-			$sql_update = "UPDATE users SET money ='$sum'  WHERE id=" . $row["id"];
+		if ($deposit > 0) {
+			$sql = "SELECT * FROM users WHERE username='$username';";
+			$result = $conn->query($sql);
 
-			if ($conn->query($sql_update) === TRUE) {
-				echo "Data updated successfully for id: " . $row["id"];
+			if ($result->num_rows > 0) {
+				$row = $result->fetch_assoc();
+				$user_id = $row["id"];
+				$balance = (int) $row["money"];
+				$sum = $balance + $deposit;
+
+				$sql_update = "UPDATE users SET money ='$sum'  WHERE id=$user_id;";
+
+				if ($conn->query($sql_update) === TRUE) {
+					echo "Data updated successfully for user: $username";
+				} else {
+					echo "Error updating data: " . $conn->error;
+				}
+				
+				header('Location: deposit.php');
+				exit();
 			} else {
-				echo "Error updating data: " . $conn->error;
+				$errors[] = "User $username not found";
 			}
+		} else {
+			$errors[] = "Deposit amount must be greater than 0";
 		}
-
-		header('Location: deposit.php');
-		exit();
 	} else {
-		$errors[] = "Failed to retrieve user's deposit balance";
+		$errors[] = "Please enter the deposit amount";
 	}
 }
 
