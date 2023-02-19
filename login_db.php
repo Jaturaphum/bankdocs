@@ -36,5 +36,3 @@
             header("location: login.php");
         }
     }
-
-?>

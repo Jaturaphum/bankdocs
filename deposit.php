@@ -68,12 +68,12 @@ if (isset($_GET['logout'])) {
         <div class="column">
             <div class="bon">
                 <label for="deposit">กรอกจำนวนเงินฝาก</label><br>
-                <input type="text" name="deposit" placeholder="" >
+                <input type="text" name="deposit" placeholder="">
                 <br><br>
                 <div class="input-group">
-                <button type="submit" name="dps_bb" class="btn"onclick="alert('ได้ทำการฝากเงินเข้าระบบเเล้ว')">deposit</button>
-            </div>
-                
+                    <button type="submit" name="dps_bb" class="btn" onclick="alert('ได้ทำการฝากเงินเข้าระบบเเล้ว')">deposit</button>
+                </div>
+
             </div>
             <div>
             </div>

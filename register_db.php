@@ -60,5 +60,4 @@
             header("location: register.php");
         }
     }
-
 ?>
