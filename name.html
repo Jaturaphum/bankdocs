@@ -25,14 +25,50 @@
             background-size: cover;
         }
         
-        .section_area_grid {
+        * {
+            padding:0px;
+            margin:0px;
+            font-family: cursive;
+         }
+         body {
+            background-image: url("img/1.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;  
+            background-size: cover;
+         }
+         
+         h2 {
+            text-shadow: 5px 5px 10px black;
+            width: 200%;
+            color: white;
+            font-size: 64px;
+         }
+         
+         .section_area_grid {
+            margin-bottom: 15px;
+            text-align: right;
             display: grid;
             grid-template-columns: 1fr 1fr;
          }
-        
-         .section_area_grid input{
+
+         .group {
+            width: 50%;
+            margin: auto;
+         }
+         
+         .group label {
+            color: rgb(255, 255, 255);
+            font-size: 24px;
+            cursor: pointer;
+            border: 0px;
+            background: transparent;
+            position: relative;
+            transition: all .25s ease;
+         }
+         
+         .group input {
             float: left;
-            width: 100%;
+            width: 24%;
             padding: 12px 20px;
             margin: 5px 0;
             box-sizing: border-box;
@@ -41,188 +77,185 @@
             /* backdrop-filter: blur(2px); */
             background-color: rgba(255, 255, 255, 0.26);
          }
-        
-         .section_area_grid label {
-            color: rgb(255, 255, 255);
-            font-size: 24px;
-            cursor: pointer;
-            border: 0px;
-            background: transparent;
-            position: relative;
-            transition: all .25s ease;
-            width: 50%;
-            text-align: center;
-         }
-        
-         h2 {
-            color: rgb(255, 255, 255);
-            text-align: center;
-        }
-        
-        .name {
-            margin: 0 10px 0 0;
-        }
-        
-        form {
+         
+         form {
+            flex-direction: column;
+            width: 30%;
             margin: auto auto;
-            padding: 20px;
+            padding: 15px;
             /*เป็นการสร้างบล็อกหน้าล็อกอิน*/
-            width: 400px;
+            background-color: aliceblue;
+            width: 1340px;
+            height: 680px;
             /*เป็นกำหนดค่าให้อยู่กึ่งกลาง*/
             display: block;
             position: fixed;
             top:50%;
             left:50%;
             transform: translate(-50%, -50%); 
-            border-radius: 12px;
             /*เป็นการเเสดงหน้าล็อกอินให้เบลอ*/
             backdrop-filter: blur(5px);
             background-color: rgba(218, 218, 218, 0.219);
-            border-radius: 2.00rem;
-        }
-        
-        .font {
-            color: rgb(255, 255, 255);
-            text-align: center;
-        }
-        
-        .homeheader {
-            text-align: center;
-            font-size: 5rem;
-        }
-        
-        .homecontent {
-            text-align: center;
-            padding-top: 3rem;
-            width: 100%;
-            background: #ccc;
-            height: 100vh;
-        }
-        
-        .input-group label {
-            color: rgb(255, 255, 255);
-            font-size: 24px;
-            cursor: pointer;
-            border: 0px;
-            background: transparent;
-            position: relative;
-            transition: all .25s ease;
-            width: 50%;
-            text-align: center;
-        }
-        
-        .input-group input {
-            float: left;
-            width: 100%;
-            padding: 12px 20px;
-            margin: 5px 0;
-            box-sizing: border-box;
-            border-radius: 15px;
-            border: 0px;
-            /* backdrop-filter: blur(2px); */
-            background-color: rgba(255, 255, 255, 0.26);
-        }
-        
-        .error {
-            width: 92%;
-            margin: 0px auto;
-            padding: 10px;
-            color: #a94442;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .success {
-            color: #3c763d;
-            background: #dff9d8;
-            border: 1px solid #3c763d;
-            margin-bottom: 20px;
-        }
-        
-        button {
-            padding: 20px 50px;
-            font-size: 20px;
-            cursor: pointer;
-            border: 0px;
-            background: transparent;
-            position: relative;
-            transition: all .25s ease;
-            width: 50%;
-            text-align: center;
+            border-radius: 24px;
+         }
+         
+         h1 {
+             font-weight: 200;
+             font-size: 2.2rem;
+             color: #929292;
+             text-align: center;
+         }
+         
+         .nav {
+            border-radius: 10px;
+             margin: 0 auto 0 auto;
+             max-width: 728px;
+             background: #676767;
+             box-shadow:0 5px 20px rgba(0,0,0,.30);
+            backdrop-filter: blur(5px);
+            background-color: rgba(218, 218, 218, 0.219);
+            border-radius: 24px;
+         }
+         
+         .nav::after {
+             display: block;
+             content: '';
+             clear: both;
+         }
+         
+         .nav ul {
+             padding: 0;
+             margin: 0;
+             list-style: none;
+         }
+         
+         .nav ul li {
+             float: left;
+             position: relative;
+         }
+         
+         .nav ul li a {
+            font-size: 16px;
+             display: block;
+             color: rgba(255, 255, 255, .9);
+             text-decoration: none;
+             padding: 24px 64px;
+             border-top: 2px solid transparent;
+             border-bottom: 2px solid transparent;
+             transition: all .3s ease-in-out;
+         }
+         
+         .nav ul li a:hover,
+         .nav ul li a:focus {
+             background: rgba(0, 0, 0, .15);
+         }
+         
+         .nav ul li a:focus {
+             color: white;
+         }
+         
+         .nav ul li a:not(:only-child)::after {
+             padding-left: 4px;
+             content: ' ▾';
+         }
+         
+         .nav ul li ul li {
+             min-width: 190px;
+         }
+         
+         .nav ul li ul li a {
+             background: transparent;
+             color: #555;
+             border-bottom: 1px solid #DDE0E7;
+         }
+         
+         .nav ul li ul li a:hover,
+         .nav ul li ul li a:focus {
+             background: #eee;
+             color: #111;
+         }
+         
+         footer {
+         color: #555;
+         font-size:12px;
+         margin-top:10em;
+         text-align:center;
+         }
+         
+         footer a {
+         color:#ffffff;
+         text-decoration:none;
+         }
+         
+         #dropbtn {
+            width: inherit;
+            color: white;
+            padding: 5px;
+            font-size: 16px;
+            border: none;
+            border-radius: 24px;
+         }
+         
+         .dropdown {
+           position: relative;
+           display: inline-block;
+         }
+         
+         .dropdown-content {
+            text-align: right;
+           display: none;
+           position: absolute;
+           background-color: #f1f1f1;
+           min-width: 160px;
+           box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+           z-index: 1;
+         }
+         
+         .dropdown-content a {
+           color: black;
+           padding: 12px 16px;
+           text-decoration: none;
+           display: block;
+         }
+         
+         .dropdown-content a:hover {
+            background-color: #ddd;
+         }
+         
+         .dropdown:hover .dropdown-content {
             display: block;
-            margin: auto;
-            /*top: 15px;*/
-        }
-        
-        .btn {
-            overflow: hidden;
-            color: #fff;
-            border-radius: 60px;
-            box-shadow: 0px -0px 0px 0px rgba(184, 184, 184, 0.5), 0px 0px 0px 0px rgba(39, 200, 255, .5);
-        }
-        .btn:hover {
-            transform: translate(0,-6px);
-            box-shadow: 10px -10px 25px 0px rgba(143, 64, 248, .25), -10px 10px 25px 0px rgba(39, 200, 255, .25);
-        }
-        .btn:hover::after {
-            transform: rotate(150deg);
-        }
-        .btn::after {
-            content: '';
-            width: 400px;
-            height: 460px;
-            position: absolute;
-            top: -50px;
-            left: -100px;
-            background-color: #17df49;
-            background-image: linear-gradient(225deg, #323ccd 0%, #1fddf6 50%, #3279e5 100%);
-            z-index: -1;
-            transition: all .5s ease;
-        }
+         }
+         
+         .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+         }
+
     </style>
-    <body>
-        <form action="register_db.php" method="post">
-            <h2>Create Users</h2>
-            <?php include('errors.php'); ?>
-            <?php if (isset($_SESSION['error'])) : ?>
-                <div class="error">
-                    <h3>
-                        <?php 
-                            echo $_SESSION['error'];
-                            unset($_SESSION['error']);
-                        ?>
-                    </h3>
-                </div>
-            <?php endif ?>
-            <div class="section_area_grid">
-                    <div class="name">
-                    <label for="firstname">Firstname</label><br>
-                    <input type="text" name="firstname" placeholder="firstname">
-                    </div>
-                    <div class="name">
-                    <label for="lastname">Lastname</label><br>
-                    <input type="text" name="lastname" placeholder="lastname">
-                    </div>
-                </div>
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" placeholder="email">
-            </div>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" name="username" placeholder="username">
-            </div>
-            <div class="input-group">
-                <label for="password_1">Password</label>
-                <input type="password" name="password_1" placeholder="password">
-            </div>
-            <div class="input-group">
-                <label for="password_2">Confirm Password</label>
-                <input type="password" name="password_2" placeholder="confirm Password">
-            </div>
-            <p><a href="login.php" style="color: white; text-decoration: none;">Sign in</a></p>
-            <div class="input-group">
-                <button type="submit" name="reg_user" class="btn">Sign Up</button>
-            </div>
+    <form method="post">
+        <div class="section_area_grid">
+            <h2>deposit</h2>
+            <div class="dropdown" style="float: right;">
+      <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong><p id="dropbtn">wallet: baht</p></p>
+        </div>
+    </div>
+        <nav class="nav">
+        <ul>
+            <li><a href="index.php">Home</a>
+        <li><a href="deposit.php">deposit</a>
+            <li><a href="withdraw.php">withdraw</a>
+            <li><a href="index.php?logout='1'" style="color: red; text-decoration:none;">Logout</a>
+        </ul>
+    </nav>
+        <nav class="group">
+        <label>กรอกจำนวนเงินที่ต้องการฝาก</label><br>
+        <input type="text" name="dps_db">
+      <input type="submit" value="Submit" onclick="alert('ได้ทำการฝากเงินเข้าระบบเเล้ว')">
+        </nav>
+    <footer>
+        <p class="main">
+            2023 © jaturaphum.s@ku.th | jaturaphum Suaprakhon | develop by <a href="https://github.com/Jaturaphum" target="_blank">Jaturaphum</a>
+        </p>
+    </footer>
         </form>
     </body>
 </html>

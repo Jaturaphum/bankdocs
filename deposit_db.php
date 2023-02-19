@@ -5,14 +5,14 @@ $errors = array();
 $result = $conn->query($sql);
 
 if (isset($_POST['dps_bb'])) {
-	$amount = (int) $_POST['amount'];
+	$deposit = (int) $_POST['deposit'];
 	if ($result->num_rows > 0) {
 
 		while ($row = $result->fetch_assoc()) {
-			$balance = (int) $row["balance"];
-			$sum = $balance + $amount;
+			$balance = (int) $row["money"];
+			$sum = $balance + $deposit;
 
-			$sql_update = "UPDATE users SET balance ='$sum'  WHERE id=" . $row["id"];
+			$sql_update = "UPDATE users SET money ='$sum'  WHERE id=" . $row["id"];
 
 			if ($conn->query($sql_update) === TRUE) {
 				echo "Data updated successfully for id: " . $row["id"];

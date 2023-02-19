@@ -21,7 +21,7 @@ if (isset($_GET['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deposit</title>
-    <link rel="stylesheet" href="style_deposit.css">
+    <link rel="stylesheet" href="style_withdraw.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
@@ -46,7 +46,7 @@ if (isset($_GET['logout'])) {
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 if ($_SESSION['username'] == $row["username"]) {
-                                    echo  $row["balance"];
+                                    echo  $row["money"];
                                 }
                             }
                         }
@@ -65,11 +65,15 @@ if (isset($_GET['logout'])) {
                 <li><a href="index.php?logout='1'" style="color: red; text-decoration:none;">Logout</a>
             </ul>
         </nav>
-        <div>
-            <div class="">
-                <label for="amount">deposit</label><br>
-                <input type="text" name="amount" placeholder="กรอกจำนวนเงินฝาก" >
-                <button type="submit" name="dps_bb">Deposit</button>
+        <div class="column">
+            <div class="bon">
+                <label for="deposit">กรอกจำนวนเงินฝาก</label><br>
+                <input type="text" name="deposit" placeholder="" >
+                <br><br>
+                <div class="input-group">
+                <button type="submit" name="dps_bb" class="btn"onclick="alert('ได้ทำการฝากเงินเข้าระบบเเล้ว')">deposit</button>
+            </div>
+                
             </div>
             <div>
             </div>

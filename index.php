@@ -44,7 +44,7 @@ if (isset($_GET['logout'])) {
 
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     if ($_SESSION['username'] == $row["username"]) {
-                                        echo  $row["balance"];
+                                        echo  $row["money"];
                                     }
                                 }
                             }
