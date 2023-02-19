@@ -1,0 +1,26 @@
+<!--  notification message -->
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="success">
+                <h3>
+                    <?php 
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
+        <!-- logged in user information -->
+        <?php if (isset($_SESSION['username'])) : ?>
+            
+        <?php endif ?>
+
+        <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="password" >
+            </div>
+        
+
