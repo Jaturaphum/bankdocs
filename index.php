@@ -57,38 +57,6 @@
 </footer>
     </form>
     </div>
-=======
-        <h1 style="font-size:400%; text-align:center;">Home</h1>
-           <p style="color: white; font-size:200%;text-decoration:none;"><strong><?php echo "ชื่อบัญชี: ".$_SESSION['username']; ?></strong></p><br>
-           <p style="color: white; font-size:200%; text-decoration:none;"><?php echo "ยอดเงินที่ใช้ได้ :" . $_SESSION['money']; ?></strong></p><br>
-   <nav>
-		<menu >
-        
-            
-				
-			
-         <menuitem id="demo1">
-         
-             <a style="text-align:center;">Menu</a>
-		<menu>
-             <menuitem id="demo" >    
-             <a style="text-align:center; text-decoration: none;"href="deposit.php">ฝาก</a>
-         
-              </menuitem>
-
-             <menuitem>
-             <a style="text-align:center;  text-decoration: none; "href="withdraw.php">ถอน</a>
-                 
-             </menuitem>
-
-			 <menuitem>
-             <p><a href="index.php?logout='1'" style="color: white;  text-decoration:none">Logout</a></p>
-            </menuitem>
-					
-            
-		</menu>
-	</nav>
->>>>>>> 69ebfa6b142343537eabb03f30f49a5729d03821
 </body>
 <script src="js/index.js"></script>
 </html>

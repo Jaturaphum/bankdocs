@@ -58,25 +58,3 @@
 </body>
 <script src="js/index.js"></script>
 </html>
-=======
-<html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money888</title>
-
-    <link rel="stylesheet" href="style_index.css">
-    </head>
-    <body>
-        <h3>ฝากเงิน</h3>
-        
-        <form action="showdeposit.php">
-        ระบุจำนวนเงินฝาก :<input type="text" name="name"> บาท <br>
-        <input type="Submit" value="ยืนยัน"> <br>
-        <menuitem><a style = "background-color: white" href="index.php">ย้อนกลับ</a></menuitem>
-
-    </form>
-        
-    </body>
-</html>
->>>>>>> 69ebfa6b142343537eabb03f30f49a5729d03821
