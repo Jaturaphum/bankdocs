@@ -10,7 +10,7 @@ if (isset($_POST['dps_bb'])) {
 
 		while ($row = $result->fetch_assoc()) {
 			$balance = (int) $row["balance"];
-			$sum = $balance - $amount;
+			$sum = $balance + $amount;
 
 			$sql_update = "UPDATE users SET balance ='$sum'  WHERE id=" . $row["id"];
 
