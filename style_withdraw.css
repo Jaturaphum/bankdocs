@@ -1,7 +1,7 @@
 * {
    padding:0px;
    margin:0px;
-   font-family:cursive;
+   font-family: cursive;
 }
 body {
    background-image: url("img/1.jpg");
@@ -12,7 +12,7 @@ body {
 
 h2 {
    text-shadow: 5px 5px 10px black;
-   width: 114%;
+   width: 120%;
    color: white;
    font-size: 64px;
 }
@@ -50,15 +50,6 @@ h1 {
 	font-size: 2.2rem;
 	color: #929292;
 	text-align: center;
-}
-
-.img img {
-   margin: 15px;
-   align-items: center;
-   width: 500px;
-   height: 425px;
-   border-radius: 65px;
-   box-shadow: 0 5px 20px rgb(0 0 0 / 30%)
 }
 
 nav {
@@ -120,7 +111,7 @@ nav ul li ul li {
 
 nav ul li ul li a {
 	background: transparent;
-	color: #a3a3a3;
+	color: #555;
 	border-bottom: 1px solid #DDE0E7;
 }
 
@@ -182,5 +173,5 @@ text-decoration:none;
 }
 
 .dropdown:hover .dropbtn {
-   background-color: #ffffff;
+   background-color: #3e8e41;
 }
