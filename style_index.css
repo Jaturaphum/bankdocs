@@ -143,12 +143,12 @@ footer a {
 }
 
 #dropbtn {
-  width: inherit;
-  color: white;
-  padding: 5px;
-  font-size: 16px;
-  border: none;
-  border-radius: 24px;
+    width: inherit;
+    color: white;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 24px;
 }
 
 .dropdown {

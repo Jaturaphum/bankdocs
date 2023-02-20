@@ -20,7 +20,7 @@ if (isset($_GET['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>deposit</title>
+    <title>withdraw</title>
     <link rel="stylesheet" href="style_withdraw.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,9 +71,22 @@ if (isset($_GET['logout'])) {
                 <input type="text" name="withdraw" placeholder="">
                 <br><br>
                 <div class="input-group">
-                    <button type="submit" name="wds_bb" class="btn" onclick="alert('ได้ทำการถอนเงินออกระบบเเล้ว')">withdraw</button>
+                    <button type="submit" name="wds_bb" class="btn" onclick="confirmWithdraw()">Withdraw</button>
+                    <script>
+                        function confirmWithdraw() {
+                            if (confirm("ยันยืนเพื่อทำการถอนไหม?")) {
+                                // user clicked OK
+                                alert("ได้ยันยืนการถอนออกจากระบบเเล้ว");
+                            } else {
+                                // user clicked Cancel
+                                alert("ได้ยกเลิกการถอนออกจากระบบเเล้ว!");
+                            }
+                        }
+                    </script>
                 </div>
-
+                <div>
+                    <asp:Button class="input-group" runat="server" Text="Select" Onclientclick="return btn_Click();" CssClass="cssbutton" />
+                </div>
             </div>
             <div>
             </div>

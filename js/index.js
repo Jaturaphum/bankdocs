@@ -13,3 +13,14 @@ jQuery(document).ready(function ($) {
     }, 100);
   });
 });
+
+
+function confirmWithdraw() {
+  if (confirm("ยันยืนเพื่อทำการถอนไหม?")) {
+      // user clicked OK
+      alert("ยันยืนการถอนออกจากระบบเเล้ว");
+  } else {
+      // user clicked Cancel
+      alert("ยกเลิกการถอนออกจากระบบเเล้ว!");
+  }
+}

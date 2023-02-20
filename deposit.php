@@ -71,7 +71,18 @@ if (isset($_GET['logout'])) {
                 <input type="text" name="deposit" placeholder="">
                 <br><br>
                 <div class="input-group">
-                    <button type="submit" name="dps_bb" class="btn" onclick="alert('ได้ทำการฝากเงินเข้าระบบเเล้ว')">deposit</button>
+                    <button type="submit" name="dps_bb" class="btn" onclick="confirmWithdraw()">deposit</button>
+                    <script>
+                        function confirmWithdraw() {
+                            if (confirm("ยันยืนเพื่อทำการฝากไหม?")) {
+                                // user clicked OK
+                                alert("ได้ยันยืนการฝากออกจากระบบเเล้ว");
+                            } else {
+                                // user clicked Cancel
+                                alert("ได้ยกเลิกการฝากออกจากระบบเเล้ว!");
+                            }
+                        }
+                    </script>
                 </div>
 
             </div>
