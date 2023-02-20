@@ -12,16 +12,27 @@ body {
 
 h2 {
   text-shadow: 5px 5px 10px black;
-  width: 118%;
+  text-align: center;
   color: white;
   font-size: 64px;
+}
+
+.balance {
+    width: 75%;
+    background-color: #E3E3E3;
+    border: 1px solid #676767;
+    border-radius: 15px;
+    font-family: "Ruluko", sans-serif;
+    font-size: 50px;
+    margin: 5px;
+    padding: 24px 24px;
 }
 
 .section_area_grid {
   margin-bottom: 15px;
   text-align: right;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .column {
@@ -34,16 +45,16 @@ h2 {
 }
 
 .bon {
-  width: 70%;
+  width: 80%;
   height: auto;
   top: 50%;
   left: 50%;
   backdrop-filter: blur(5px);
   background-color: rgba(218, 218, 218, 0.219);
-  border-radius: 100px;
+  border-radius: 50px;
   text-align: center;
   padding: 30px;
-  margin: 64px;
+  margin: 20px;
   display: grid;
   /* grid-template-columns: 1fr 1fr; */
   align-content: center;
@@ -53,6 +64,7 @@ h2 {
   box-shadow: 0 5px 20px rgb(0 0 0 / 30%);
 }
 
+
 .bon label {
   text-shadow: 5px 3px 4px black;
   font-size: 24px;
@@ -60,7 +72,7 @@ h2 {
 }
 
 .bon input {
-  padding: 20px 50px;
+  padding: 20px 35px;
   font-size: 20px;
   cursor: pointer;
   border: 0px;
@@ -70,7 +82,7 @@ h2 {
   width: auto;
   text-align: center;
   display: block;
-  margin: auto;
+  margin: 12px auto;
   /* top: 15px; */
   border-radius: 24px;
   box-shadow: 0 5px 20px rgb(0 0 0 / 30%);
@@ -176,7 +188,7 @@ nav ul li ul li a:focus {
 footer {
   color: #555;
   font-size: 12px;
-  margin-top: 2em;
+  margin-top: 3em;
   text-align: center;
 }
 
@@ -275,4 +287,14 @@ button {
   );
   z-index: -1;
   transition: all 0.5s ease;
+}
+
+#timedate {
+  font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+text-align: left;
+/* width: 50%; */
+margin: 0px 20px;
+color: white;
+padding: 10px;
+font-size: 24px;
 }

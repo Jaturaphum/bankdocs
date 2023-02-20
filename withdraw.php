@@ -16,7 +16,6 @@ if (isset($_GET['logout'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,14 +25,36 @@ if (isset($_GET['logout'])) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <form method="post" action="withdraw_db.php">
-        <div class="section_area_grid">
+    <div class="section_area_grid">
+        <body onLoad ="initClock()">
+      <div id="timedate">
+      <a id="h">12</a>:
+        <a id="m">00</a>:
+        <a id="s">00</a><br>
+        <a id="mon">January</a>
+        <a id="d">1</a>
+        <a id="y">0</a>
+      </div>
             <h2>withdraw</h2>
             <div class="dropdown" style="float: right;">
                 <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong>
-                <p id="dropbtn">wallet: <strong>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul>
+                <li><a href="index.php">Home</a>
+                <li><a href="deposit.php">deposit</a>
+                <li><a href="withdraw.php">withdraw</a>
+                <li><a href="listbank.php">list</a>
+                <li><a href="index.php?logout='1'" style="color: red; text-decoration:none;">Logout</a>
+            </ul>
+        </nav>
+        <div class="column">
+            <div class="bon">
+                <label for="deposit">กรอกจำนวนเงินถอน</label>
+                <div class="balance">$ <strong>
                         <?php
                         $errors = array();
                         if (!$conn) {
@@ -46,34 +67,19 @@ if (isset($_GET['logout'])) {
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 if ($_SESSION['username'] == $row["username"]) {
-                                    echo  $row["money"];
+                                    echo $row["money"];
                                 }
                             }
                         }
                         mysqli_close($conn);
                         ?>
-                    </strong> baht</p>
-                </p>
-            </div>
-        </div>
-        <nav class="nav">
-            <ul>
-                <li><a href="index.php">Home</a>
-                <li><a href="deposit.php">deposit</a>
-                <li><a href="withdraw.php">withdraw</a>
-                <li><a href="list.php">list</a>
-                <li><a href="index.php?logout='1'" style="color: red; text-decoration:none;">Logout</a>
-            </ul>
-        </nav>
-        <div class="column">
-            <div class="bon">
-                <label for="withdraw">กรอกจำนวนเงินถอน</label><br>
-                <input type="text" name="withdraw" placeholder="">
-                <br><br>
+                    </strong>
+                </div>
+                <input type="number" name="withdraw" placeholder="">
                 <div class="input-group">
-                    <button type="submit" name="wds_bb" class="btn" onclick="confirmWithdraw()">Withdraw</button>
+                    <button type="submit" name="wds_bb" class="btn" onclick="confirmwithdraw()">withdraw</button>
                     <script>
-                        function confirmWithdraw() {
+                        function confirmwithdraw() {
                             if (confirm("ยันยืนเพื่อทำการถอนไหม?")) {
                                 // user clicked OK
                                 alert("ได้ยันยืนการถอนออกจากระบบเเล้ว");
@@ -83,9 +89,6 @@ if (isset($_GET['logout'])) {
                             }
                         }
                     </script>
-                </div>
-                <div>
-                    <asp:Button class="input-group" runat="server" Text="Select" Onclientclick="return btn_Click();" CssClass="cssbutton" />
                 </div>
             </div>
             <div>
@@ -98,5 +101,42 @@ if (isset($_GET['logout'])) {
     </form>
 </body>
 <script src="js/index.js"></script>
+<script>
+    Number.prototype.pad = function (n) {
+  for (var r = this.toString(); r.length < n; r = 0 + r);
+  return r;
+};
+function updateClock() {
+  var now = new Date();
+  var sec = now.getSeconds(),
+    min = now.getMinutes(),
+    hou = now.getHours(),
+    mo = now.getMonth(),
+    dy = now.getDate(),
+    yr = now.getFullYear();
+  var months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  var tags = ["mon", "d", "y", "h", "m", "s",],
+    corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2),];
+  for (var i = 0; i < tags.length; i++)
+    document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+}
 
+function initClock() {
+  updateClock();
+  window.setInterval("updateClock()", 1);
+}
+</script>
 </html>
