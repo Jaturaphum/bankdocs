@@ -18,14 +18,14 @@ h2 {
 }
 
 .balance {
-    width: 75%;
-    background-color: #E3E3E3;
-    border: 1px solid #676767;
-    border-radius: 15px;
-    font-family: "Ruluko", sans-serif;
-    font-size: 50px;
-    margin: 5px;
-    padding: 24px 24px;
+  width: 75%;
+  background-color: #e3e3e3;
+  border: 1px solid #676767;
+  border-radius: 15px;
+  font-family: "Ruluko", sans-serif;
+  font-size: 50px;
+  margin: 5px;
+  padding: 24px 24px;
 }
 
 .section_area_grid {
@@ -63,7 +63,6 @@ h2 {
   justify-items: center;
   box-shadow: 0 5px 20px rgb(0 0 0 / 30%);
 }
-
 
 .bon label {
   text-shadow: 5px 3px 4px black;
@@ -290,11 +289,12 @@ button {
 }
 
 #timedate {
-  font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-text-align: left;
-/* width: 50%; */
-margin: 0px 20px;
-color: white;
-padding: 10px;
-font-size: 24px;
+  font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype",
+    "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-align: left;
+  /* width: 50%; */
+  margin: 0px 20px;
+  color: white;
+  padding: 10px;
+  font-size: 24px;
 }

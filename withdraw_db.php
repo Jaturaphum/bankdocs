@@ -22,14 +22,14 @@ if (isset($_POST['wds_bb'])) {
 			if ($sum < 0) {
 				$errors[] = "Insufficient balance for user $username";
 			} else {
-				$sql_update = "UPDATE users SET money ='$sum'  WHERE id=$user_id AND username='$username';";
+				$sql_update = "UPDATE users SET money ='$sum', withdraw ='$withdraw' WHERE id=$user_id AND username='$username';";
 
 				if ($conn->query($sql_update) === TRUE) {
 					echo "Data updated successfully for user: $username";
 				} else {
 					echo "Error updating data: " . $conn->error;
 				}
-				
+
 				header('Location: withdraw.php');
 				exit();
 			}
@@ -40,10 +40,3 @@ if (isset($_POST['wds_bb'])) {
 		$errors[] = "Withdrawal amount must be greater than 0";
 	}
 }
-
-if (!empty($errors)) {
-	$_SESSION['errors'] = $errors;
-	header('Location: withdraw.php');
-	exit();
-}
-?>

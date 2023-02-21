@@ -29,20 +29,21 @@ if (isset($_GET['logout'])) {
 
 <body>
     <form method="post" action="deposit_db.php">
-    <div class="section_area_grid">
-        <body onLoad ="initClock()">
-      <div id="timedate">
-      <a id="h">12</a>:
-        <a id="m">00</a>:
-        <a id="s">00</a><br>
-        <a id="mon">January</a>
-        <a id="d">1</a>
-        <a id="y">0</a>
-      </div>
-            <h2>deposit</h2>
-            <div class="dropdown" style="float: right;">
-                <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong>
-            </div>
+        <div class="section_area_grid">
+
+            <body onLoad="initClock()">
+                <div id="timedate">
+                    <a id="h">12</a>:
+                    <a id="m">00</a>:
+                    <a id="s">00</a><br>
+                    <a id="mon">January</a>
+                    <a id="d">1</a>
+                    <a id="y">0</a>
+                </div>
+                <h2>deposit</h2>
+                <div class="dropdown" style="float: right;">
+                    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong>
+                </div>
         </div>
         <nav class="nav">
             <ul>
@@ -78,21 +79,20 @@ if (isset($_GET['logout'])) {
                     </strong></div>
                 <input type="number" name="deposit" placeholder="">
                 <div class="input-group">
-                    <button type="submit" name="dps_bb" class="btn" onclick="confirmdeposit()">deposit</button>
+                    <button type="submit" name="dps_bb" class="btn" onclick="<?php echo "return confirmdeposit()" ?>">deposit</button>
                     <script>
                         function confirmdeposit() {
-                            if (confirm("ยันยืนเพื่อทำการฝากไหม?")) {
-                                // user clicked OK
-                                alert("ได้ยันยืนการฝากเข้าจากระบบเเล้ว");
+                            let cancel = confirm("ยันยืนเพื่อทำการฝากไหม?")
+                            if (cancel) {
+                                alert("ได้ยันยืนการฝากเข้าระบบเเล้ว");
                             } else {
-                                // user clicked Cancel
-                                alert("ได้ยกเลิกการฝากเข้าจากระบบเเล้ว!");
-                            }
+                                alert("ได้ยกเลิกการฝากเเล้ว!");
+                            } return cancel
                         }
                     </script>
                 </div>
             </div>
-        <div>
+            <div>
             </div>
             <footer>
                 <p class="main">
@@ -103,41 +103,43 @@ if (isset($_GET['logout'])) {
 </body>
 <script src="js/index.js"></script>
 <script>
-    Number.prototype.pad = function (n) {
-  for (var r = this.toString(); r.length < n; r = 0 + r);
-  return r;
-};
-function updateClock() {
-  var now = new Date();
-  var sec = now.getSeconds(),
-    min = now.getMinutes(),
-    hou = now.getHours(),
-    mo = now.getMonth(),
-    dy = now.getDate(),
-    yr = now.getFullYear();
-  var months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  var tags = ["mon", "d", "y", "h", "m", "s",],
-    corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2),];
-  for (var i = 0; i < tags.length; i++)
-    document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
-}
+    Number.prototype.pad = function(n) {
+        for (var r = this.toString(); r.length < n; r = 0 + r);
+        return r;
+    };
 
-function initClock() {
-  updateClock();
-  window.setInterval("updateClock()", 1);
-}
+    function updateClock() {
+        var now = new Date();
+        var sec = now.getSeconds(),
+            min = now.getMinutes(),
+            hou = now.getHours(),
+            mo = now.getMonth(),
+            dy = now.getDate(),
+            yr = now.getFullYear();
+        var months = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+        ];
+        var tags = ["mon", "d", "y", "h", "m", "s", ],
+            corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2), ];
+        for (var i = 0; i < tags.length; i++)
+            document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+    }
+
+    function initClock() {
+        updateClock();
+        window.setInterval("updateClock()", 1);
+    }
 </script>
+
 </html>

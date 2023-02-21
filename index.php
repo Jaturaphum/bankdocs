@@ -3,7 +3,7 @@ session_start();
 include('server.php');
 
 if (!isset($_SESSION['username'])) {
-    $_SESSION['msg'] = "You must log in first";
+    $_SESSION = "You must log in first";
     header('location: login.php');
 }
 
@@ -79,7 +79,7 @@ if (isset($_GET['logout'])) {
                     </div>
                 </div>
                 <div>
-                <footer>
+                    <footer>
                         <p class="main">
                             2023 © jaturaphum.s@ku.th | jaturaphum Suaprakhon | develop by <a href="https://github.com/Jaturaphum" target="_blank">Jaturaphum</a>
                         </p>

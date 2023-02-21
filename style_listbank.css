@@ -130,18 +130,6 @@ nav ul li ul li a:focus {
   color: #111;
 }
 
-footer {
-  color: #555;
-  font-size: 12px;
-  margin-top: 2em;
-  text-align: center;
-}
-
-footer a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
 #dropbtn {
   width: inherit;
   color: white;
@@ -154,11 +142,14 @@ footer a {
 .dropdown {
   position: relative;
   display: inline-block;
-  
 }
 
 #mytable {
   margin: auto;
+}
+
+#mytable tr {
+  text-align: center;
 }
 
 table {
@@ -167,14 +158,15 @@ table {
   width: 100%;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
+td,th {
+  border-radius: 10px;
+  border: 3px solid #dddddd;
+  text-align: center;
   padding: 8px;
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #dfdfdf;
 }
 
 .dropdown-content {

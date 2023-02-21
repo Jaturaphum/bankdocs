@@ -21,14 +21,14 @@ if (isset($_POST['dps_bb'])) {
 				$balance = (int) $row["money"];
 				$sum = $balance + $deposit;
 
-				$sql_update = "UPDATE users SET money ='$sum'  WHERE id=$user_id;";
+				$sql_update = "UPDATE users SET money ='$sum', deposit ='$deposit' WHERE id=$user_id;";
 
 				if ($conn->query($sql_update) === TRUE) {
 					echo "Data updated successfully for user: $username";
 				} else {
 					echo "Error updating data: " . $conn->error;
 				}
-				
+
 				header('Location: deposit.php');
 				exit();
 			} else {
@@ -46,3 +46,4 @@ if (!empty($errors)) {
 	header('Location: deposit.php');
 	exit();
 }
+

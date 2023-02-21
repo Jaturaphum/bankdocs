@@ -12,7 +12,6 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['username']);
   header('location: login.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +29,6 @@ if (isset($_GET['logout'])) {
 <body>
   <form method="post" action="deposit_db.php">
     <div class="section_area_grid">
-
       <body onLoad="initClock()">
         <div id="timedate">
           <a id="h">12</a>: <a id="m">00</a>: <a id="s">00</a><br />
@@ -59,7 +57,7 @@ if (isset($_GET['logout'])) {
       </ul>
     </nav>
     <div style=" width:820px; height:425px; overflow: auto; margin: auto; margin-top: 15px;">
-      <?php
+    <?php
       include('server.php');
 
       $username = $_SESSION['username'];
@@ -84,20 +82,14 @@ if (isset($_GET['logout'])) {
               <td><?php echo $row['username']; ?></td>
               <td><?php echo $row['email']; ?></td>
               <td><?php echo $row['money']; ?></td>
-              <td></td>
-              <td>-500.00</td>
+              <td style="color: greenyellow;"><?php echo $row['deposit']; ?></td>
+              <td style="color: red;"> <?php echo $row['withdraw']; ?></td>
               <td><?php echo $row['datatime']; ?></td>
             </tr>
           <?php endwhile; ?>
         </tbody>
       </table>
     </div>
-    <footer>
-      <p class="main">
-        2023 © jaturaphum.s@ku.th | jaturaphum Suaprakhon | develop by
-        <a href="https://github.com/Jaturaphum" target="_blank">Jaturaphum</a>
-      </p>
-    </footer>
   </form>
 </body>
 <script src="js/index.js"></script>
@@ -129,8 +121,8 @@ if (isset($_GET['logout'])) {
       "November",
       "December",
     ];
-    var tags = ["mon", "d", "y", "h", "m", "s"],
-      corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+    var tags = ["mon", "d", "y", "h", "m", "s", ],
+      corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2), ];
     for (var i = 0; i < tags.length; i++)
       document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
   }
@@ -140,5 +132,4 @@ if (isset($_GET['logout'])) {
     window.setInterval("updateClock()", 1);
   }
 </script>
-
 </html>
