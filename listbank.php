@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('server.php');
+include('conDB/server.php');
 
 if (!isset($_SESSION['username'])) {
   $_SESSION['msg'] = "You must log in first";
@@ -12,6 +12,7 @@ if (isset($_GET['logout'])) {
   unset($_SESSION['username']);
   header('location: login.php');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,15 +21,16 @@ if (isset($_GET['logout'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>list</title>
-  <link rel="stylesheet" href="style_listbank.css" />
+  <link rel="stylesheet" href="style/style_listbank.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <form method="post" action="deposit_db.php">
+  <form method="post" action="">
     <div class="section_area_grid">
+
       <body onLoad="initClock()">
         <div id="timedate">
           <a id="h">12</a>: <a id="m">00</a>: <a id="s">00</a><br />
@@ -57,11 +59,11 @@ if (isset($_GET['logout'])) {
       </ul>
     </nav>
     <div style=" width:820px; height:425px; overflow: auto; margin: auto; margin-top: 15px;">
-    <?php
-      include('server.php');
-
+      <?php
+      include('conDB/server.php');
+      $error = array();
       $username = $_SESSION['username'];
-      $sql = "SELECT * FROM users WHERE username='$username';";
+      $sql = "SELECT * FROM users WHERE username='$username' ORDER BY datatime ASC;";
 
       $result = $conn->query($sql);
       ?>
@@ -82,7 +84,7 @@ if (isset($_GET['logout'])) {
               <td><?php echo $row['username']; ?></td>
               <td><?php echo $row['email']; ?></td>
               <td><?php echo $row['money']; ?></td>
-              <td style="color: greenyellow;"><?php echo $row['deposit']; ?></td>
+              <td style="color: green;"><?php echo $row['deposit']; ?></td>
               <td style="color: red;"> <?php echo $row['withdraw']; ?></td>
               <td><?php echo $row['datatime']; ?></td>
             </tr>
@@ -132,4 +134,5 @@ if (isset($_GET['logout'])) {
     window.setInterval("updateClock()", 1);
   }
 </script>
+
 </html>

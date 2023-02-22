@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('server.php');
+include('conDB/server.php');
 
 if (isset($_SESSION['username'])) {
     header("Location:index.php");
@@ -8,15 +8,13 @@ if (isset($_SESSION['username'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="style_login.css">
+    <link rel="stylesheet" href="style/style_login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
@@ -24,7 +22,7 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <div class="wrapper">
-        <img src="img/KU_SubLogo_Thai.png">
+        <img src="img/pngwing.com.png" class="img">
         <form action="login_db.php" method="post">
             <div id="font">
                 <h2>Login</h2>

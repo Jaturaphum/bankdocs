@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('server.php');
+include('conDB/server.php');
 ?>
 
 <!DOCTYPE html>
@@ -10,13 +10,13 @@ include('server.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign in</title>
-    <link rel="stylesheet" href="style_register.css">
+    <link rel="stylesheet" href="style/style_register.css">
 </head>
 
 <body>
     <form action="register_db.php" method="post">
         <h2>Create Users</h2>
-        <?php include('errors.php'); ?>
+        <?php include('conDB/errors.php'); ?>
         <?php if (isset($_SESSION['error'])) : ?>
             <div class="error">
                 <h3>

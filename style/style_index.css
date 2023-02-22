@@ -4,7 +4,7 @@
   font-family: cursive;
 }
 body {
-  background-image: url("img/1.jpg");
+  background-image: url("img/wallpaper-6524635.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -44,6 +44,13 @@ form {
   backdrop-filter: blur(5px);
   background-color: rgba(218, 218, 218, 0.219);
   border-radius: 24px;
+}
+
+.btn-dlt {
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 6px;
+  font-size: 20px;
 }
 
 h1 {

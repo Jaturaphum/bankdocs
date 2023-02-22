@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('server.php');
+include('conDB/server.php');
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
@@ -21,7 +21,7 @@ if (isset($_GET['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deposit</title>
-    <link rel="stylesheet" href="style_deposit.css">
+    <link rel="stylesheet" href="style/style_deposit.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@ if (isset($_GET['logout'])) {
                 </div>
                 <h2>deposit</h2>
                 <div class="dropdown" style="float: right;">
-                    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong>
+                    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
                 </div>
         </div>
         <nav class="nav">

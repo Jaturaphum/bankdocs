@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('server.php');
+include('conDB/server.php');
 
 if (!isset($_SESSION['username'])) {
     $_SESSION = "You must log in first";
@@ -20,14 +20,13 @@ if (isset($_GET['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="style_index.css">
+    <link rel="stylesheet" href="style/style_index.css">
 </head>
 
 <body>
     <div>
-        <form method="post">
+        <form method="post" action="delete_db.php">
             <div class="section_area_grid">
-
                 <body onLoad="initClock()">
                     <div id="timedate">
                         <a id="h">12</a>:
@@ -40,9 +39,18 @@ if (isset($_GET['logout'])) {
                 </body>
                 <h2>Home</h2>
                 <div class="dropdown" style="float: right;">
-                    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong>
-                    <div class="dropdown-content">
-                    </div>
+                    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
+                    <button type="submit" name="dlt_dd" onclick="<?php echo "return confirmdelete()" ?>" class="btn-dlt">delete</button>
+                    <script>
+                        function confirmdelete() {
+                            let cancel = confirm("ยันยืนเพื่อทำการลบข้อมูลไหม?")
+                            if (cancel) {
+                                alert("ได้ยันยืนการลบข้อมูลออกเเล้ว");
+                            } else {
+                                alert("ได้ยกเลิกกาลบข้อมูลเเล้ว!");
+                            } return cancel
+                        }
+                    </script>
                 </div>
             </div>
             <nav class="nav">

@@ -1,5 +1,5 @@
 <?php
-include('server.php');
+include('conDB/server.php');
 
 $errors = array();
 
@@ -40,3 +40,4 @@ if (isset($_POST['wds_bb'])) {
 		$errors[] = "Withdrawal amount must be greater than 0";
 	}
 }
+?>

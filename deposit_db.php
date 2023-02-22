@@ -1,5 +1,5 @@
 <?php
-include('server.php');
+include('conDB/server.php');
 
 $errors = array();
 
@@ -46,4 +46,3 @@ if (!empty($errors)) {
 	header('Location: deposit.php');
 	exit();
 }
-
