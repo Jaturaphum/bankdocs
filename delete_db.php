@@ -5,16 +5,15 @@ session_start();
 
 if (isset($_POST['delete'])) {
     $id = $_SESSION['id'];
-
     $sql = "DELETE FROM users WHERE id ='$id';";
+    $result = $conn->query($sql);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "user deleted successfully";
+    if ($result) {
+        session_destroy();
+        header('Location: login.php');
+        exit();
     } else {
-        echo "error deleting user:" . $conn->error;
+        array_push($errors, "Error deleting user: " . $conn->error);
     }
-
-    session_destroy();
-    header('Location: index.php');
-    exit();
 }
+?>
