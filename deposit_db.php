@@ -10,7 +10,7 @@ if (isset($_POST['dps_bb'])) {
 
 	if (isset($_POST['deposit'])) {
 		$deposit = (int) $_POST['deposit'];
-
+		
 		if ($deposit > 0) {
 			$sql = "SELECT * FROM users WHERE username='$username';";
 			$result = $conn->query($sql);
