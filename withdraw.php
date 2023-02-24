@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
                     <a id="y">0</a>
                 </div>
                 <h2>withdraw</h2>
-                <div class="dropdown" style="float: right;">
+                <div class="dropdown" style="float: right; margin: 0 20px;">
                     <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
                 </div>
         </div>

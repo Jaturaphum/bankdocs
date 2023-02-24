@@ -3,7 +3,7 @@ session_start();
 include('conDB/server.php');
 
 if (!isset($_SESSION['username'])) {
-    $_SESSION = "You must log in first";
+    $_SESSION = "You are not logged in";
     header('location: login.php');
 }
 
@@ -27,6 +27,7 @@ if (isset($_GET['logout'])) {
     <div>
         <form method="post" action="delete_db.php">
             <div class="section_area_grid">
+
                 <body onLoad="initClock()">
                     <div id="timedate">
                         <a id="h">12</a>:
@@ -38,19 +39,9 @@ if (isset($_GET['logout'])) {
                     </div>
                 </body>
                 <h2>Home</h2>
-                <div class="dropdown" style="float: right;">
+                <div class="dropdown" style="float: right;  margin: 0 20px;">
                     <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
-                    <button type="submit" name="dlt_dd" onclick="<?php echo "return confirmdelete()" ?>" class="btn-dlt">delete</button>
-                    <script>
-                        function confirmdelete() {
-                            let cancel = confirm("ยันยืนเพื่อทำการลบข้อมูลไหม?")
-                            if (cancel) {
-                                alert("ได้ยันยืนการลบข้อมูลออกเเล้ว");
-                            } else {
-                                alert("ได้ยกเลิกกาลบข้อมูลเเล้ว!");
-                            } return cancel
-                        }
-                    </script>
+                    <!--<button type="submit" name="dlt_dd" onclick="<?php echo "return confirmdelete()" ?>" class="btn-dlt">delete<button> -->
                 </div>
             </div>
             <nav class="nav">
@@ -135,5 +126,4 @@ if (isset($_GET['logout'])) {
         window.setInterval("updateClock()", 1);
     }
 </script>
-
 </html>

@@ -29,7 +29,7 @@ if (isset($_POST['wds_bb'])) {
 				} else {
 					echo "Error updating data: " . $conn->error;
 				}
-
+				
 				header('Location: withdraw.php');
 				exit();
 			}
@@ -39,5 +39,7 @@ if (isset($_POST['wds_bb'])) {
 	} else {
 		$errors[] = "Withdrawal amount must be greater than 0";
 	}
+	header('Location: withdraw.php');
+	exit();
 }
 ?>

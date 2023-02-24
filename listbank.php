@@ -40,7 +40,7 @@ if (isset($_GET['logout'])) {
         </div>
       </body>
       <h2>list</h2>
-      <div class="dropdown" style="float: right">
+      <div class="dropdown" style="float: right; margin: 0 20px; ">
         <p id="dropbtn">
           username:
           <strong style="margin-right: 5px"><?php echo $_SESSION['username']; ?></strong>
@@ -64,7 +64,6 @@ if (isset($_GET['logout'])) {
       $error = array();
       $username = $_SESSION['username'];
       $sql = "SELECT * FROM users WHERE username='$username' ORDER BY datatime ASC;";
-
       $result = $conn->query($sql);
       ?>
       <table id="mytable">
@@ -79,7 +78,7 @@ if (isset($_GET['logout'])) {
           </tr>
         </thead>
         <tbody>
-          <?php while ($row = $result->fetch_assoc()) : ?>
+          <?php while ($row = $result->fetch_assoc()) { ?>
             <tr>
               <td><?php echo $row['username']; ?></td>
               <td><?php echo $row['email']; ?></td>
@@ -88,7 +87,7 @@ if (isset($_GET['logout'])) {
               <td style="color: red;"> <?php echo $row['withdraw']; ?></td>
               <td><?php echo $row['datatime']; ?></td>
             </tr>
-          <?php endwhile; ?>
+          <?php } ?>
         </tbody>
       </table>
     </div>

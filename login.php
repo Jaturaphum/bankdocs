@@ -22,7 +22,7 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <div class="wrapper">
-        <img src="img/pngwing.com.png" class="img">
+        <img src="style/img/pngwing.com.png" class="img">
         <form action="login_db.php" method="post">
             <div id="font">
                 <h2>Login</h2>

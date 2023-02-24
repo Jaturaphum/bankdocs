@@ -41,7 +41,7 @@ if (isset($_GET['logout'])) {
                     <a id="y">0</a>
                 </div>
                 <h2>deposit</h2>
-                <div class="dropdown" style="float: right;">
+                <div class="dropdown" style="float: right; margin: 0 20px;">
                     <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
                 </div>
         </div>
@@ -141,5 +141,6 @@ if (isset($_GET['logout'])) {
         window.setInterval("updateClock()", 1);
     }
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </html>
