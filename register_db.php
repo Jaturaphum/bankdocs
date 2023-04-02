@@ -46,7 +46,6 @@
                 array_push($errors, "Username already exists");
             }
         }
-
         if (count($errors) == 0) {
             $password = md5($password_1);
 
