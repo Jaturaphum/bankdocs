@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2023 at 06:33 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 05, 2023 at 09:15 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `register_db`
 --
-CREATE DATABASE IF NOT EXISTS `register_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `register_db`;
 
 -- --------------------------------------------------------
 
@@ -33,6 +31,7 @@ CREATE TABLE `users` (
   `id` int(10) NOT NULL,
   `firstname` varchar(100) DEFAULT NULL,
   `lastname` varchar(100) DEFAULT NULL,
+  `IDstudent` varchar(10) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
@@ -40,15 +39,14 @@ CREATE TABLE `users` (
   `deposit` double(12,2) DEFAULT NULL,
   `withdraw` double(12,2) DEFAULT NULL,
   `datatime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `username`, `password`, `money`, `deposit`, `withdraw`, `datatime`) VALUES
-(1, 'จตุรภูมิ', 'เสือประโคน', 'jaturaphum.s@ku.th', 'jaturaphum', '827ccb0eea8a706c4c34a16891f84e7b', '0.00', NULL, NULL, '2023-02-24 17:30:00'),
-(2, 'admin', 'admin', 'admin@gmail.com', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', '0.00', NULL, NULL, '2023-02-24 17:30:04');
+INSERT INTO `users` (`id`, `firstname`, `lastname`, `IDstudent`, `email`, `username`, `password`, `money`, `deposit`, `withdraw`, `datatime`) VALUES
+(1, 'admin', 'admin', '6440200373', 'admin@gmail.com', 'admin', '827ccb0eea8a706c4c34a16891f84e7b', '0.00', NULL, NULL, '2023-04-05 05:25:09');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +66,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

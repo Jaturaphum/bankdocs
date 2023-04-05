@@ -13,6 +13,7 @@ if (isset($_GET['logout'])) {
     header('location: login.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,70 +23,41 @@ if (isset($_GET['logout'])) {
     <title>Home</title>
     <link rel="stylesheet" href="style/style_index.css">
 </head>
-
-<body>
-    <div>
-        <form method="post" action="delete_db.php">
-            <div class="section_area_grid">
-
-                <body onLoad="initClock()">
-                    <div id="timedate">
-                        <a id="h">12</a>:
-                        <a id="m">00</a>:
-                        <a id="s">00</a><br>
-                        <a id="mon">January</a>
-                        <a id="d">1</a>
-                        <a id="y">0</a>
-                    </div>
-                </body>
-                <h2>Home</h2>
-                <div class="dropdown" style="float: right;  margin: 0 20px;">
-                    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
-                    <!--<button type="submit" name="dlt_dd" onclick="<?php echo "return confirmdelete()" ?>" class="btn-dlt">delete<button> -->
+<form method="post" action="index_db.php">
+    <body>
+        <div class="menu-main">
+            <body onLoad="initClock()">
+                <div id="timedate">
+                    <a id="h">12</a>:
+                    <a id="m">00</a>:
+                    <a id="s">00</a><br>
+                    <a id="mon">January</a>
+                    <a id="d">1</a>
+                    <a id="y">0</a>
                 </div>
-            </div>
-            <nav class="nav">
+            </body>
+            <ul class="ul-menu">
+                <li><a href="index.php">Home</a>
+                <li><a href="deposit.php">deposit</a>
+                <li><a href="withdraw.php">withdraw</a>
+                <li><a href="listbank.php">list</a>
+            </ul>
+            <nav class="nav-logout">
                 <ul>
-                    <li><a href="index.php">Home</a>
-                    <li><a href="deposit.php">deposit</a>
-                    <li><a href="withdraw.php">withdraw</a>
-                    <li><a href="listbank.php">list</a>
                     <li><a href="index.php?logout='1'" style="color: red; text-decoration:none;">Logout</a>
                 </ul>
             </nav>
-            <div class="column">
-                <div class="bon">
-                    <label for="">จำนวนเงินคงเหลือ</label>
-                    <div class="balance">$ <strong>
-                            <?php
-                            $errors = array();
-                            if (!$conn) {
-                                die("Connection failed: " . mysqli_connect_error());
-                            }
-                            $sql = "SELECT * FROM users ";
-                            $result = mysqli_query($conn, $sql);
-                            if (mysqli_num_rows($result) > 0) {
-
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    if ($_SESSION['username'] == $row["username"]) {
-                                        echo $row["money"];
-                                    }
-                                }
-                            }
-                            mysqli_close($conn);
-                            ?>
-                        </strong>
-                    </div>
-                </div>
-                <div>
-                    <footer>
-                        <p class="main">
-                            2023 © jaturaphum.s@ku.th | jaturaphum Suaprakhon | develop by <a href="https://github.com/Jaturaphum" target="_blank">Jaturaphum</a>
-                        </p>
-                    </footer>
-        </form>
+        </div>
+    </body>
+</form>
+<nav class="nav-user">
+    <div class="section_area_grid">
+        <div class="dropdown" style="float: right;  margin: 0 20px;">
+            <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username'] ?></strong></p>
+            <!--<button type="submit" name="dlt_dd" onclick="<?php echo "return confirmdelete()" ?>" class="btn-dlt">delete<button> -->
+        </div>
     </div>
-</body>
+</nav>
 <script src="js/index.js"></script>
 <script>
     Number.prototype.pad = function(n) {
@@ -126,4 +98,5 @@ if (isset($_GET['logout'])) {
         window.setInterval("updateClock()", 1);
     }
 </script>
+
 </html>
