@@ -38,12 +38,12 @@ include('conDB/server.php');
             </div>
         </div>
         <div class="input-group">
-            <label for="IDstudent">IDstudent</label>
-            <input type="text" name="IDstudent" placeholder="IDstudent">
-        </div>
-        <div class="input-group">
             <label for="email">Email</label>
             <input type="email" name="email" placeholder="email">
+        </div>
+        <div class="input-group">
+            <label for="idstudent">IDstudent</label>
+            <input type="text" name="idstudent" placeholder="idstudent">
         </div>
         <div class="input-group">
             <label for="username">Username</label>

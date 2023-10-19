@@ -58,39 +58,37 @@ if (isset($_GET['logout'])) {
         </li>
       </ul>
     </nav>
-    <div style=" width:820px; height:425px; overflow: auto; margin: auto; margin-top: 15px;">
-      <?php
-      include('conDB/server.php');
-      $error = array();
-      $username = $_SESSION['username'];
-      $sql = "SELECT * FROM users WHERE username='$username' ORDER BY datatime ASC;";
-      $result = $conn->query($sql);
-      ?>
-      <table id="mytable">
+    <div style="width: 820px; height: 425px; margin: auto; margin-top: 15px; overflow-x: hidden;">
+    <?php
+    include('conDB/server.php');
+    $error = array();
+    $username = $_SESSION['username'];
+    $sql = "SELECT * FROM listbanks WHERE username='$username' ORDER BY datatime ASC;";
+    $result = $conn->query($sql);
+    ?>
+    <table id="mytable">
         <thead>
-          <tr>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Wallet</th>
-            <th>Deposit</th>
-            <th>Withdraw</th>
-            <th>Datatime</th>
-          </tr>
+            <tr>
+                <th>Username<th>Wallet</th>
+                <th>Deposit</th>
+                <th>Withdraw</th>
+                <th>Datatime</th></th>
+            </tr>
         </thead>
         <tbody>
-          <?php while ($row = $result->fetch_assoc()) { ?>
-            <tr>
-              <td><?php echo $row['username']; ?></td>
-              <td><?php echo $row['email']; ?></td>
-              <td><?php echo $row['money']; ?></td>
-              <td style="color: green;"><?php echo $row['deposit']; ?></td>
-              <td style="color: red;"> <?php echo $row['withdraw']; ?></td>
-              <td><?php echo $row['datatime']; ?></td>
-            </tr>
-          <?php } ?>
+            <?php while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row['username']; ?></td>
+                    <td><?php echo $row['balance']; ?></td>
+                    <td style="color: green;"><?php echo $row['deposit']; ?></td>
+                    <td style="color: red;"> <?php echo $row['withdraw']; ?></td>
+                    <td><?php echo $row['datatime']; ?></td>
+                </tr>
+            <?php } ?>
         </tbody>
-      </table>
-    </div>
+    </table>
+</div>
+
   </form>
 </body>
 <script src="js/index.js"></script>
