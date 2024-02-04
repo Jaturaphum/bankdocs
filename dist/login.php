@@ -70,5 +70,4 @@ if (isset($_SESSION['username'])) {
         </form>
     </div>
 </body>
-
 </html>

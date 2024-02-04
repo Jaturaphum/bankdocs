@@ -41,8 +41,7 @@ if (isset($_GET['logout'])) {
                 </body>
                 <h2>Home</h2>
                 <div class="dropdown" style="float: right; margin: 0 20px;">
-    <p id="dropbtn">Username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
-        <button type="submit" name="dlt_d" class="btn-dlt">Delete</button>
+    <p id="dropbtn">username: <strong style="margin-right: 5px;"><?php echo $_SESSION['username']; ?></strong></p>
 </div>
 
             </div>
